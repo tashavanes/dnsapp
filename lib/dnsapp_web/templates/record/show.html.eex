@@ -1,0 +1,30 @@
+<h2>Show Record</h2>
+
+<ul>
+
+  <li>
+    <strong>Hostname:</strong>
+    <%= @record.hostname %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @record.type %>
+  </li>
+
+
+  <li>
+    <strong>IP Address:</strong>
+    <%= @record.ip_addr %>
+  </li>
+
+
+  <li>
+    <strong>Expires:</strong>
+    <%= @record.expires %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: record_path(@conn, :edit, @record) %></span>
+<span><%= link "Back", to: record_path(@conn, :index) %></span>

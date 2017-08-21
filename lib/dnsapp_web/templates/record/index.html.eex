@@ -1,0 +1,32 @@
+<h2>Table of currently requested records</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>Type</th>
+      <th>IP Address</th>
+      <th>Expires</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for record <- @records do %>
+    <tr>
+      <td><%= record.hostname %></td>
+      <td><%= record.type %></td>
+      <td><%= record.ip_addr %></td>
+      <td><%= record.expires %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: record_path(@conn, :show, record), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: record_path(@conn, :edit, record), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: record_path(@conn, :delete, record), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Record", to: record_path(@conn, :new) %></span>
